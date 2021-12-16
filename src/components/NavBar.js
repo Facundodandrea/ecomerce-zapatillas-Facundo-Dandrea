@@ -1,4 +1,7 @@
 const Navbar = () => {
+    
+
+    
     return (
         <nav className="menu">
 
@@ -6,13 +9,14 @@ const Navbar = () => {
 
             <div className="menu_container">
                 <ul className="nav_list">
-                <li className="nav_item"><a href="#" className="nav_link active">Home</a></li>
-                <li className="nav_item"><a href="#" className="nav_link ">Featured</a></li>
-                <li className="nav_item"><a href="#" className="nav_link ">Women</a></li>
-                <li className="nav_item"><a href="#" className="nav_link ">New</a></li>
-                </ul>
+                <li id="nav_item"><a href="#" className="nav_link active">Home</a></li>
+                <li id="nav_item"><a href="#" className="nav_link ">Featured</a></li>
+                <li id="nav_item"><a href="#" className="nav_link ">Women</a></li>
+                <li id="nav_item"><a href="#" className="nav_link ">New</a></li>
+                <li id="nav_item"><a href="#" className="nav_cart"><span class="material-icons">
+                shopping_cart</span></a></li>
+                </ul>     
             </div>
-        
         </nav>
     )
 }

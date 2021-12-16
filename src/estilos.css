@@ -26,6 +26,11 @@
     font-family: var(--body-font);
 }
 
+html , body , #root {
+    height: 100vh;
+}
+
+/*===== Nav =====*/
 .menu{
     height: var(--header-height);
     display:flex;
@@ -36,10 +41,14 @@
 }
 
 
-.nav_item{
+#nav_item{
     display: inline-block;
     list-style: none;
     margin: 0 25px;
+}
+
+.material-icons{
+    transform: translateY(30%);
 }
 
 li a::after{
@@ -49,11 +58,12 @@ li a::after{
     background-color: var(--dark-color);
     margin: auto;
     display: block;
+    transition: width 0.1s linear;
 }
 
 li a:hover::after, .active:after{
     width: 100%;
-    transition: width 0.2s linear;
+    transition: width 0.1s linear;
 }
 
 .brand{
@@ -66,3 +76,22 @@ a{
     color: black;
 }
 
+main {
+    height: calc(100vh - var(--header-height)*2);
+    text-align: center;
+    align-items: center;
+    top: 50px;
+}
+
+footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header-height);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--dark-color-lighten);
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, .1);
+}
