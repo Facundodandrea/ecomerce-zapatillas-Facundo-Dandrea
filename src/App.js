@@ -7,8 +7,6 @@ const footerData = {
     author : "Facundo E. D'Andrea"
 }
 
-const greeting = "HOLA"
-
 function App(){
     return(
         <>

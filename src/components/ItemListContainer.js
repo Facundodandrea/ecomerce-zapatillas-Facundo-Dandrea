@@ -1,6 +1,9 @@
+
+
 const ItemListContainer = ({greeting}) =>{
+
     return(
-        <div>
+        <div className="greeting">
             {greeting}!
         </div>
     )

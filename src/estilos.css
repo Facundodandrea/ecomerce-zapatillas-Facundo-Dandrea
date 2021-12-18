@@ -83,6 +83,27 @@ main {
     top: 50px;
 }
 
+.contadorContainer{
+    display: inline-table;
+    text-align: center;
+    width: 500px;
+    height: 100px;
+    margin-top: 20vh;
+    background: var(--dark-color-lighten);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btnStock{
+    display: flex;
+    margin: 5px;
+    justify-content: space-around;
+}
+.btn_Stock{
+    align-items: center;
+    width: 200px;
+}
+
 footer {
     padding: 1rem;
     display: flex;
