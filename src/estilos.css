@@ -17,6 +17,26 @@
 
   /*===== Font and typography =====*/
   --body-font: 'Poppins', sans-serif;
+  --big-font-size: 1.25rem;
+  --bigger-font-size: 1.5rem;
+  --biggest-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .813rem;
+
+  /*===== Margenes =====*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /*===== z index =====*/
+  --z-fixed: 100;
+  
+  /*===== Rotate img =====*/
+  --rotate-img: rotate(-30deg);
 }
 
 *{
@@ -76,19 +96,70 @@ a{
     color: black;
 }
 
+/* ===== Main =====*/
+
 main {
-    height: calc(100vh - var(--header-height)*2);
+    display: flex;
     text-align: center;
     align-items: center;
     top: 50px;
+    height: calc(100vh - 160px);
+    margin-left: 50vh;
+    margin-bottom: 50px;
 }
+
+.greeting{
+    text-align: center;
+}
+
+.items{
+    margin-top: 15px;
+}
+
+/* ===== Featured =====*/
+
+.sneaker{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 2rem;
+    background-color: var(--dark-color-lighten);
+    border-radius: .5rem;
+    transition: .3s;
+  }
+
+  .sneaker_img{
+    width: 220px;
+    margin-top: var(--mb-3);
+    margin-bottom: var(--mb-6);
+    transform: var(--rotate-img);
+    filter: drop-shadow(0 12px 8px rgba(0,0,0,.2));
+  }
+
+  .sneaker_name, .sneaker_precio{
+    font-size: var(--h2-font-size);
+    letter-spacing: .1rem;
+    font-weight: var(--font-bold);
+  }
+  
+  .sneaker_name{
+    margin-bottom: var(--mb-1);
+  }
+  
+  .sneaker_precio{
+    margin-bottom: var(--mb-4);
+  }
+
+  .sneaker:hover{
+    transform: translateY(-.5rem);
+  }
 
 .contadorContainer{
     display: inline-table;
     text-align: center;
     width: 500px;
     height: 100px;
-    margin-top: 20vh;
     background: var(--dark-color-lighten);
     border-radius: 5px;
     padding: 5px;
@@ -104,12 +175,13 @@ main {
     width: 200px;
 }
 
+/* ===== Footer =====*/
+
 footer {
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: var(--header-height);
     display:flex;
     justify-content: space-around;
     align-items: center;
