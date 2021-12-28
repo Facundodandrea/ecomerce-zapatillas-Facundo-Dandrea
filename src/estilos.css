@@ -101,9 +101,8 @@ a{
 main {
     display: flex;
     text-align: center;
-    align-items: center;
     top: 50px;
-    height: calc(100vh - 160px);
+    height: 100vh;
     margin-left: 50vh;
     margin-bottom: 50px;
 }
@@ -113,7 +112,35 @@ main {
 }
 
 .items{
-    margin-top: 15px;
+    display: flex;
+    margin: 10px;
+}
+
+article{
+    margin: 10px;
+}
+
+.featured{
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* ===== Detalles =====*/
+.detalleContainer{
+    display: block;
+    position: relative;
+    right: 50%;
+    top: 60%;
+    height: 350px;
+}
+
+.btn_detalles{
+    width: 100%;
+}
+
+.btn_comprar{
+    width: 100%;
 }
 
 /* ===== Featured =====*/
@@ -180,11 +207,8 @@ main {
 footer {
     padding: 1rem;
     display: flex;
-    justify-content: center;
     align-items: center;
-    display:flex;
     justify-content: space-around;
-    align-items: center;
     background-color: var(--dark-color-lighten);
     box-shadow: 0 -4px 4px rgba(0, 0, 0, .1);
 }

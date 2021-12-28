@@ -1,34 +1,9 @@
-import { useEffect, useState } from "react";
 import Item from "./Item";
-
-const ItemList = () => {
-    const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState([true])
-
-    useEffect(() => {
-        const promesa = new Promise((res, rej) => {
-            setTimeout(() => {
-                res(
-                    <Item/>
-                )
-            },2000)
-        })
-
-        promesa.then((productos) => {
-            setLoading(false)
-            setProductos(productos)
-        })
-    },[])
-
-    if(loading) {
-        return(
-            <h3 className="titulo_cargando">Cargando...</h3>
+  
+    const ItemList = () => {
+        return ( 
+            <Item/>  
         )
-    }else{
-        return(
-            <Item/>
-        )
-    }
 }
 
 export default ItemList

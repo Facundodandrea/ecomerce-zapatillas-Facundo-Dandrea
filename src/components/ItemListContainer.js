@@ -1,4 +1,4 @@
-import ItemList from "./ItemList"
+import Featured from "../Featured"
 
 const ItemListContainer = ({greeting}) =>{
 
@@ -6,7 +6,7 @@ const ItemListContainer = ({greeting}) =>{
         <div className="greeting">
             {greeting}!
             <div className="items">
-                <ItemList/>
+                <Featured/>
             </div>
         </div>
     )
