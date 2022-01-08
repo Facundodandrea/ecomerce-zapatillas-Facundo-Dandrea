@@ -3,6 +3,7 @@ import AllProducts from "./AllProducts";
 import ItemDetailContainer from "./ItemDetailContainer";
 import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer";
+import Cart from "./Cart";
 
 const Main = (props) => {
     return (       
@@ -12,7 +13,7 @@ const Main = (props) => {
                 <Route path="/" element={<ItemListContainer/>}/>
                 <Route path="/categoria/:id" element={<ItemListContainer/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-                {/*<Route path="/carrito" element=""/>*/}
+                <Route path="/cart" element={<Cart/>}/>
             </Routes>
         </main>
     )

@@ -672,3 +672,12 @@ nav li{
     margin-left: 580px;
   }
 }
+
+.cart{
+  align-items: center;
+  text-align: center;
+}
+
+#titleCart{
+  margin-top: 100px;
+}

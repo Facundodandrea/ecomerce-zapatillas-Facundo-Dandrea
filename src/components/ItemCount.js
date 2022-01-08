@@ -15,7 +15,7 @@ const ItemCount = ({ stock , initial , onAdd }) => {
 
     const confirmarCantidad = () => {
         console.log(`Confirmando cantidad: ${contador}`)
-        //onAdd(contador)
+        onAdd(contador)
     }
 
     return (
