@@ -1,19 +1,15 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-
-const footerData = {
-    copyright : "Copyright © 2021",
-    author : "Facundo E. D'Andrea"
-}
+import { BrowserRouter } from "react-router-dom";
 
 function App(){
     return(
-        <>
+        <BrowserRouter>
         <Header/>
         <Main/>
-        <Footer data={footerData}/>
-        </>
+        <Footer/>
+        </BrowserRouter>
     )
 }
 

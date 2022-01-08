@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 
 const Header = () => {
     return (
-        <header>
+        <header className="l-header" id="header">
           <NavBar/>
         </header>
     )

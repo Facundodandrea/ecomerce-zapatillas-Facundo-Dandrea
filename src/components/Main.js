@@ -1,13 +1,19 @@
+import Home from "./Home";
+import AllProducts from "./AllProducts";
+import ItemDetailContainer from "./ItemDetailContainer";
+import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer";
-import ItemDetailContainer from './ItemDetailContainer'
 
-const Main = () => {
+const Main = (props) => {
     return (       
         <main>
-            <ItemListContainer greeting={"Welcome / Bienvenidos"}/>
-            <div className="detalleContainer">
-                <ItemDetailContainer/>
-            </div>
+            
+            <Routes>
+                <Route path="/" element={<ItemListContainer/>}/>
+                <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+                <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                {/*<Route path="/carrito" element=""/>*/}
+            </Routes>
         </main>
     )
 }

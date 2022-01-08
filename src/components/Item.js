@@ -1,32 +1,18 @@
-import new2 from "./img/new2.png"
-import new3 from "./img/new3.png"
-import new4 from "./img/new4.png"
+import { Link } from "react-router-dom"
 
+const Item = ({producto/* :{nombre,precio} */}) => {
 
-const items = [
-    {stock: 35, id: 1, nombre: "Yeezy Boost 350", marca: "Adidas", desc: "Yeezy Boost 350 V2 Beluga", precio: 9499, img: new2},
-    {stock: 40, id: 2, nombre: "Yeezy Boost 350", marca: "Adidas", desc: "Yeezy Boost 350 V2 Oreo", precio: 9499, img: new3},
-    {stock: 20, id: 3, nombre: "Yeezy Boost 350", marca: "Adidas", desc: "Yeezy Boost 350 V2 Zebra", precio: 9499, img: new4},
-]
+    const {title,price,description,image,id} = producto
 
-const Item = () => {
     return (
-        items.map((elemento, indice) => {
-            return(
-                <>
-                <article key={indice} className="sneaker">
-                    <img className="sneaker_img" src={elemento.img} alt="producto" />
-                    <div className="info_producto">
-                        <p className="sneaker_name">{elemento.nombre}</p>
-                        <p className="sneaker_descripcion">{elemento.desc}</p>
-                        <p className="sneaker_precio">${elemento.precio}</p>
-                        <p className="sneaker_stock">Stock disponible: {elemento.stock}</p>
-                    </div>
-                </article>
-                </>
-            )
-        })
+        <article class="sneaker">
+                <img src={image} alt="" class="sneaker__img"/>
+                <span class="sneaker__name">{title}</span>
+                <span class="sneaker__preci">$ {price}</span>
+                <Link to={`/item/${id}`} class="button-light">See more<i class="bx bx-right-arrow-alt"></i></Link>                  
+        </article>
     )
 }
 
 export default Item
+
