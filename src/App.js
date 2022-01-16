@@ -1,15 +1,18 @@
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";   
+import CartProvider from "./context/CartContext";
 
 function App(){
     return(
-        <BrowserRouter>
-        <Header/>
-        <Main/>
-        <Footer/>
-        </BrowserRouter>
+        <CartProvider>
+            <BrowserRouter>
+                <Header/>
+                <Main/>
+                <Footer/>
+            </BrowserRouter>
+        </CartProvider>
     )
 }
 

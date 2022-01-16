@@ -1,32 +1,45 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import ItemDetail from "./ItemDetail"
+import { useContext } from "react";
+import { React, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
 
-    const [producto, setProducto] = useState({})
-    const [loading, setLoading] = useState(true)
-    const {id} = useParams() 
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [added, setAdded] = useState(false);
 
-    useEffect(() => {
+  // const id = 1;
+  const { id } = useParams();
 
-    const promesa = fetch(`https://fakestoreapi.com/products/${id}`)
-    promesa
-    .then(res=>res.json())
-    .then((producto)=>{
-        setLoading(false)
-        setProducto(producto)
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
-},[])
+  const { addItem } = useContext(CartContext);
 
-return (
-    <div>
-        <ItemDetail producto={producto}/>
-    </div>
-)
+  useEffect(() => {
+    setLoading(true);
+
+    const URL = `https://fakestoreapi.com/products/${id}`;
+    const getItem = fetch(URL)
+
+    getItem
+      .then((res) => res.json())
+      .then((res) => {
+        setProduct(res)
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false))
+  }, [id]);
+
+  const onAdd = (count) => {
+    addItem(product, count);
+    setAdded(true);
+  }
+
+  return (
+    <>
+    <ItemDetail onAdd={onAdd} product={product} added={added} />
+    </>
+  );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

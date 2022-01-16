@@ -1,5 +1,3 @@
-import Home from "./Home";
-import AllProducts from "./AllProducts";
 import ItemDetailContainer from "./ItemDetailContainer";
 import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./ItemListContainer";
