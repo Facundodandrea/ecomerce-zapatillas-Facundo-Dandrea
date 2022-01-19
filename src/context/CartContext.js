@@ -1,44 +1,54 @@
-import { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from 'react';
 
-export const CartContext = createContext() 
+export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-    
-    const [cartArray, setCartArray] = useState([])
-    
-    const addItem = (product, count) => {
-    const newObj = {
+
+  const [cartArray, setCartArray] = useState([]);
+
+  const addToCart = (product, count) => {
+    if (isInCart(product.id)) {
+      console.log('ya está el producto en el carrito.'); // esta sería la acción para cuando ya está agregado.
+    } else {
+      console.log(`Agregaste ${product.title}, cantidad: ${count}.`);
+      const newObj = {
         item: product,
         count
+      }
+      setCartArray([...cartArray, newObj])
     }
-        setCartArray([...cartArray, newObj])
-    }
+  }
 
-    const removeItem = (id) => {
-        const updateCart = cartArray.filter(element => element.id !== id)
-        setCartArray(updateCart)
-    }
+  const deleteItem = (id) => {
+    const updatedCart = cartArray.filter(element => element.item.id !== id);
+    setCartArray(updatedCart);
+  }
 
-    const clear = () => {
-        setCartArray([])
-    }
+  const clearCart = () => {
+    setCartArray([]);
+  }
 
-    const isInCart = (id) => {
-        return cartArray.some(element => element.id === id)
-    }
+  const isInCart = (id) => {
+    return cartArray.some(element => element.item.id === id);
+  }
 
-    const value = {
-        cartArray,
-        addItem,
-        removeItem,
-        clear
-    }
+  const productCounter = () => {
+    return cartArray.reduce((accum, item) => accum = accum + item.count, 0)
+  }
 
-    return (
-        <CartContext.Provider value={value}>
-            {children}
-        </CartContext.Provider>
-    )
+  const value = {
+    cartArray,
+    addToCart,
+    deleteItem,
+    clearCart,
+    productCounter
+  }
+
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+    </CartContext.Provider>
+  )
 }
 
-export default CartProvider
+export default CartProvider;

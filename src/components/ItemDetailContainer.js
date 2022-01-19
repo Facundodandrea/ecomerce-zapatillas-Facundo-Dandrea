@@ -3,6 +3,7 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import ItemDetail from "./ItemDetail";
+import Loader from "./Loader";
 
 const ItemDetailContainer = () => {
 
@@ -13,7 +14,7 @@ const ItemDetailContainer = () => {
   // const id = 1;
   const { id } = useParams();
 
-  const { addItem } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     setLoading(true);
@@ -31,13 +32,13 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   const onAdd = (count) => {
-    addItem(product, count);
-    setAdded(true);
+    addToCart(product, count);
+    setAdded(true); // seteo en tru cuando es agregado el producto
   }
 
   return (
     <>
-    <ItemDetail onAdd={onAdd} product={product} added={added} />
+      {loading ? <Loader /> : <ItemDetail onAdd={onAdd} product={product} added={added} />}
     </>
   );
 }

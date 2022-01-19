@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import CartWidget from './CartWidget';
 
 const Navbar = () => {
     
@@ -20,7 +21,7 @@ const Navbar = () => {
 </div>
 
 <div classname="nav__shop">
-<Link to="/cart"><span class="material-icons">shopping_bag</span></Link>
+<Link to={'/cart'}><CartWidget/></Link>
 </div>
 </nav>
     )
