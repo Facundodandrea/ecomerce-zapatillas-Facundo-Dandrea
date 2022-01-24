@@ -10,10 +10,10 @@ const Footer = () => {
                 <div className="footer__box">
                     <h3 className="footer__title">EXPLORE</h3>
                     <ul>
-                        <li><a href="#home" className="footer__link">Home</a></li>
-                        <li><a href="#featured" className="footer__link">Men</a></li>
-                        <li><a href="#women" className="footer__link">Women</a></li>
-                        <li><a href="#new" className="footer__link">New</a></li>
+                        <li><a href="#" className="footer__link">Home</a></li>
+                        <li><a href="#" className="footer__link">Men</a></li>
+                        <li><a href="#" className="footer__link">Women</a></li>
+                        <li><a href="#" className="footer__link">New</a></li>
                     </ul>
                 </div>
 

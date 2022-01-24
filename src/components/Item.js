@@ -2,13 +2,13 @@ import { Link } from "react-router-dom"
 
 const Item = ({producto/* :{nombre,precio} */}) => {
 
-    const {title,price,description,image,id} = producto
+    const {Titulo,precio,description,imagen,id,categoria} = producto
 
     return (
         <article class="sneaker">
-                <img src={image} alt="" class="sneaker__img"/>
-                <span class="sneaker__name">{title}</span>
-                <span class="sneaker__preci">$ {price}</span>
+                <img src={imagen} alt="" class="sneaker__img"/>
+                <span class="sneaker__name">{Titulo}</span>
+                <span class="sneaker__preci">$ {precio}</span>
                 <Link to={`/item/${id}`} class="button-light">See more<i class="bx bx-right-arrow-alt"></i></Link>                  
         </article>
     )
