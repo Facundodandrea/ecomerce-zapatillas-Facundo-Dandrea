@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Item = ({producto/* :{nombre,precio} */}) => {
 
-    const {Titulo,precio,description,imagen,id,categoria} = producto
+    const {Titulo,precio,imagen,id} = producto
 
     return (
         <article class="sneaker">

@@ -7,13 +7,13 @@ const CartItem = ({ product, deleteItem }) => {
       <Container>
         <Row>
           <Col>
-            {product.item.title}
+            {product.item.Titulo}
           </Col>
           <Col>
             Cantidad :{product.count}
           </Col>
           <Col>
-            ${product.item.price}
+            ${product.item.precio}
           </Col>
           <Col>
           <Button variant='danger' onClick={() => deleteItem(product.item.id)}>Delete</Button>

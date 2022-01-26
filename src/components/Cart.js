@@ -19,7 +19,7 @@ const Cart = () => {
               <Link to='/'>Ir al inicio</Link>
             </div>
           }
-          {(cartArray.length > 0) && cartArray.map(prod => <CartItem key={prod.item.id} product={prod} deleteItem={deleteItem} />)}
+          {(cartArray.length > 0) && cartArray.map(prod => <CartItem key={prod  .item.id} product={prod} deleteItem={deleteItem} />)}
           <div>
                 <button className="clearButton"  onClick={clearFullCart}>Clear cart</button>
                 <button className="finishButton"  onClick={clearFullCart}>Finish purchase</button>

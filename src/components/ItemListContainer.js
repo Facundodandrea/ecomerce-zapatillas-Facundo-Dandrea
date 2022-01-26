@@ -2,7 +2,7 @@ import { useEffect , useState } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import { db } from "./Firebase"
-import { collection, getDocs, getDoc } from "firebase/firestore"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
  const ItemListContainer = () => {
 
@@ -13,41 +13,29 @@ import { collection, getDocs, getDoc } from "firebase/firestore"
     
     useEffect(() => {
         setLoading(true)
-        const colecionProductos = collection(db, "productos")
-        const pedido = getDocs(colecionProductos)
+        const coleccionProductos = collection(db,"productos")
         
+        let pedido 
+        
+        if(id){
+            const filtro = where("categoria","==",id)
+            const consulta = query(coleccionProductos,filtro)
+             pedido = getDocs(consulta)
+        }else {
+             pedido = getDocs(coleccionProductos)
+        }
+
         pedido
-            .then((resultado) =>{
-                const docs = resultado.docs
-                const docs_formateado = docs.map(doc =>{  
-                    const producto = {
-                        id : doc.id,
-                        ...doc.data()
-                    }  
-                    return producto;
-                })
-                setProductos(docs_formateado);
-                setLoading(false)
+            .then((resultado)=>{
+                setProductos(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
+                setLoading(false) 
             })
             .catch((error)=>{
-                console.log(error);
+                console.log(error)
             })
 
-       /*  const URL = id ? `https://fakestoreapi.com/products/category/${id}` : 'https://fakestoreapi.com/products'
-        const promesa = fetch(URL)
-        promesa
-        .then(res=>res.json())
-        .then((productos)=>{
-            setLoading(false)
-            setProductos(productos)
-        })
-        .catch((error)=>{
-            console.log(error)
-        })*/
 
-    },[id]) 
-
-    const onAdd = () => { }
+    },[id])
 
 
     return (

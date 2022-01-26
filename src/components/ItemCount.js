@@ -14,16 +14,15 @@ const ItemCount = ({ stock , initial , onAdd }) => {
     }
 
     const confirmarCantidad = () => {
-        console.log(`Confirmando cantidad: ${contador}`)
         onAdd(contador)
     }
 
     return (
         <div>
             <p>Contador Actual : {contador}</p>
-            <button onClick={disminuirContador}>disminuir</button>
+            <button onClick={disminuirContador} disabled={contador===initial}>disminuir</button>
             <button onClick={confirmarCantidad}>confirmar</button>
-            <button onClick={aumentarContador}>aumentar</button>
+            <button onClick={aumentarContador}disabled={contador>=stock}>aumentar</button>
         </div>
     )
 }

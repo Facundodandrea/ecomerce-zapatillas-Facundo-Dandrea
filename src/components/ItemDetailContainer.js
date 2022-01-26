@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { db } from "./Firebase";
+import { collection, getDoc, doc } from "firebase/firestore";
 import ItemDetail from "./ItemDetail";
 import Loader from "./Loader";
 
@@ -11,7 +13,6 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(false);
   const [added, setAdded] = useState(false);
 
-  // const id = 1;
   const { id } = useParams();
 
   const { addToCart } = useContext(CartContext);
@@ -19,21 +20,24 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true);
 
-    const URL = `https://fakestoreapi.com/products/${id}`;
-    const getItem = fetch(URL)
+    const coleccionProductos = collection(db,"productos")
+        const docRef = doc(coleccionProductos,id)
+        const pedido = getDoc(docRef)
 
-    getItem
-      .then((res) => res.json())
-      .then((res) => {
-        setProduct(res)
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false))
-  }, [id]);
+        pedido
+        .then((resultado)=>{
+            const producto = resultado.data()
+            setProduct(producto)
+            setLoading(false)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }, [id])
 
   const onAdd = (count) => {
     addToCart(product, count);
-    setAdded(true); // seteo en tru cuando es agregado el producto
+    setAdded(true);
   }
 
   return (

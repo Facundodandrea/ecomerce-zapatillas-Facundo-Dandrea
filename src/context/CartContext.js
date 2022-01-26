@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (product, count) => {
     if (isInCart(product.id)) {
-      console.log('ya está el producto en el carrito.'); // esta sería la acción para cuando ya está agregado.
+      console.log('ya está el producto en el carrito.');
     } else {
       console.log(`Agregaste ${product.title}, cantidad: ${count}.`);
       const newObj = {
@@ -18,6 +18,7 @@ const CartProvider = ({ children }) => {
       setCartArray([...cartArray, newObj])
     }
   }
+  console.log(cartArray)
 
   const deleteItem = (id) => {
     const updatedCart = cartArray.filter(element => element.item.id !== id);
